@@ -1,3 +1,4 @@
+import { MaterialModule } from './material/material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
@@ -9,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DndDirective } from './directive/dnd.directive';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { HomeComponent } from './components/home/home.component';
     RegisterComponent,
     CreateQuizComponent,
     HomeComponent,
+    DndDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

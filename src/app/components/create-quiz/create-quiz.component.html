@@ -1,39 +1,55 @@
 <div class="wrapper">
   <aside class="diapositiva">diapositivas de preguntas</aside>
-  <main>
-    <form class="form" [formGroup]='quizForm' (ngSubmit)="onSubmit()" >
-      <div>
-        <p class="info-question">Escribe la pregunta</p>
-        <input class="question" type="text" name="question" formControlName="question" id="">
+  <main class="content">
+    <form class="form" [formGroup]='quizForm' (ngSubmit)="onSubmit()">
+      <div class="quiz">
+        <mat-form-field appearance="standard">
+          <mat-label>Escriu la pregunta</mat-label>
+          <input matInput name="question" formControlName="question">
+          <mat-icon matSuffix>quiz</mat-icon>
+        </mat-form-field>
       </div>
-      <div class="question-image">
-        <div class="darp-drop">
-          <img src="../../../assets/images/quiz.svg" alt="">
+      <div class="zonedrop" appDnd (files)="filesDropped($event)">
+        <div *ngIf="!files.length">
+          <img src="../../../assets/images/upload-file.svg" alt="upload" width="100vw">
         </div>
-        <div class="browser-file">
-          <input type="file" name="file" formControlName="file" id="file">
-        </div>
-      </div>
-      <div class="group-radio">
-        <div class="control-group">
-          <input type="text" name="response1" formControlName="response1" id="">
-          <input type="radio" name="respons" checked formControlName="respons" id="" value="correct1">
-        </div>
-        <div class="control-group">
-          <input type="text" name="response2" formControlName="response2" id="">
-          <input type="radio" name="respons" formControlName="respons" id="" value="correct2">
-        </div>
-        <div class="control-group">
-          <input type="text" name="response3" formControlName="response3" id="">
-          <input type="radio" name="respons" formControlName="respons" id="" value="correct3">
-        </div>
-        <div class="control-group">
-          <input type="text" name="response4" formControlName="response4" id="">
-          <input type="radio" name="respons" formControlName="respons" id="" value="correct4">
+        <div *ngFor="let file of files">
+          <img class="file-upload" *ngIf="file" [src]="file.url">
         </div>
       </div>
-      <div>
-        <button type="submit" class="btn btn-outline-success">Listo !!!</button>
+      <div class="group-response">
+        <div class="group-control">
+          <mat-form-field appearance="standard">
+            <mat-label>Resposta</mat-label>
+            <input matInput name="response1" formControlName="response1">
+          </mat-form-field>
+          <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct1">
+        </div>
+        <div class="group-control">
+          <mat-form-field appearance="standard">
+            <mat-label>Resposta</mat-label>
+            <input matInput name="response2" formControlName="response2">
+          </mat-form-field>
+            <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct2">
+        </div>
+        <div class="group-control">
+          <mat-form-field appearance="standard">
+            <mat-label>Resposta</mat-label>
+            <input matInput name="response3" formControlName="response3">
+          </mat-form-field>
+            <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct3">
+        </div>
+        <div class="group-control">
+          <mat-form-field appearance="standard">
+            <mat-label>Resposta</mat-label>
+            <input matInput name="response4" formControlName="response4">
+          </mat-form-field>
+            <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct4">
+        </div>
+      </div>
+      <div class="footer">
+        <button mat-raised-button color="accent">Finalitzar <mat-icon Sufix>send</mat-icon></button>
+
       </div>
     </form>
   </main>
