@@ -24,6 +24,7 @@ export class CreateQuizComponent implements OnInit {
   }
 
   filesDropped(files: FileHandle[]): void {
+    console.log(files)
     this.files = files;
   }
 

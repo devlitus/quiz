@@ -11,9 +11,9 @@
       </div>
       <div class="zonedrop" appDnd (files)="filesDropped($event)">
         <div *ngIf="!files.length">
-          <img src="../../../assets/images/upload-file.svg" alt="upload" width="100vw">
+          <svg class="icon icon-file_upload"><use xlink:href="#icon-file_upload"></use></svg>
         </div>
-        <div *ngFor="let file of files">
+        <div class="box-upload" *ngFor="let file of files">
           <img class="file-upload" *ngIf="file" [src]="file.url">
         </div>
       </div>
@@ -55,3 +55,4 @@
   </main>
   <aside class="info">info del usuario</aside>
 </div>
+

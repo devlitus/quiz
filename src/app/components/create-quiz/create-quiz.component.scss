@@ -5,59 +5,68 @@
   column-gap: 10px;
   margin-top: 3rem;
   // align-items: center;
-}
-.content {
-  background-color: aliceblue;
-}
-.diapositiva {
-  border-right: 1px solid #000;
-}
-.info {
-  border-left: 1px solid #000;
-}
-.form {
+  .content {
+    background-color: aliceblue;
+  }
+  .diapositiva {
+    border-right: 1px solid #000;
+  }
+  .info {
+    border-left: 1px solid #000;
+  }
+  .form {
 
-  .quiz {
-    mat-form-field.mat-form-field{
-      width: 100%;
+    .quiz {
+      mat-form-field.mat-form-field{
+        width: 100%;
+      }
     }
-  }
-  .zonedrop {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #000;
-    height: 400px;
-    margin-bottom: 2rem;
-    .file-upload {
-      max-width: 90%;
-      max-height: 70%;
-    }
-  }
-  .group-response {
-    border: 1px solid #000;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    // justify-content: space-around;
-    .group-control {
+    .zonedrop {
       display: flex;
-      justify-content: space-around;
+      flex-flow: column nowrap;
+      justify-content: center;
       align-items: center;
-      .radio-button{
-        min-width: 2em;
-        min-height: 2em;
+      border: 1px solid #000;
+      margin-bottom: 2rem;
+      .box-upload {
+        margin: 1.5rem 0;
+        .file-upload {
+          max-height: 500px;
+        }
+      }
+    }
+    .group-response {
+      border: 1px solid #000;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      // justify-content: space-around;
+      .group-control {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .radio-button{
+          min-width: 2em;
+          min-height: 2em;
+        }
+      }
+    }
+    .footer {
+      button {
+        font-size: 2rem;
+        color: rgba(104, 58, 183,);
+        margin-top: 2rem;
+        width: 100%;
+        height: 4rem;
       }
     }
   }
-  .footer {
-    button {
-      font-size: 2rem;
-      color: rgba(104, 58, 183,);
-      margin-top: 2rem;
-      width: 100%;
-      height: 4rem;
-    }
-  }
+}
+.icon {
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
 }
