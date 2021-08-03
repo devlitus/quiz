@@ -1,17 +1,32 @@
 <div class="wrapper">
-  <aside class="diapositiva">diapositivas de preguntas</aside>
+  <aside class="diapositiva">
+  <h4>Preguntas afegides</h4>
+  <div>
+    <div *ngFor="let quiz of quizs">
+      <div class="mini-diapositiva">
+        <span>{{quiz.question}}</span>
+      </div>
+    </div>
+  </div>
+  </aside>
   <main class="content">
     <form class="form" [formGroup]='quizForm' (ngSubmit)="onSubmit()">
       <div class="quiz">
         <mat-form-field appearance="standard">
-          <mat-label>Escriu la pregunta</mat-label>
+          <mat-label>Títol del qüestionari <span class="required">*</span></mat-label>
+          <input matInput name="titleQuiz" formControlName="titleQuiz">
+        </mat-form-field>
+      </div>
+      <div class="quiz">
+        <mat-form-field appearance="standard">
+          <mat-label>Escriu la pregunta <span class="required">*</span></mat-label>
           <input matInput name="question" formControlName="question">
           <mat-icon matSuffix>quiz</mat-icon>
         </mat-form-field>
       </div>
       <div class="zonedrop" appDnd (files)="filesDropped($event)">
         <div *ngIf="!files.length">
-          <svg class="icon icon-file_upload"><use xlink:href="#icon-file_upload"></use></svg>
+          <mat-icon class="icon-upload-file">upload_file</mat-icon>
         </div>
         <div class="box-upload" *ngFor="let file of files">
           <img class="file-upload" *ngIf="file" [src]="file.url">
@@ -20,31 +35,31 @@
       <div class="group-response">
         <div class="group-control">
           <mat-form-field appearance="standard">
-            <mat-label>Resposta</mat-label>
+            <mat-label>Resposta <span class="required">*</span></mat-label>
             <input matInput name="response1" formControlName="response1">
           </mat-form-field>
           <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct1">
         </div>
         <div class="group-control">
           <mat-form-field appearance="standard">
-            <mat-label>Resposta</mat-label>
+            <mat-label>Resposta <span class="required">*</span></mat-label>
             <input matInput name="response2" formControlName="response2">
           </mat-form-field>
-            <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct2">
+          <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct2">
         </div>
         <div class="group-control">
           <mat-form-field appearance="standard">
-            <mat-label>Resposta</mat-label>
+            <mat-label>Resposta <span class="required">*</span></mat-label>
             <input matInput name="response3" formControlName="response3">
           </mat-form-field>
-            <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct3">
+          <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct3">
         </div>
         <div class="group-control">
           <mat-form-field appearance="standard">
-            <mat-label>Resposta</mat-label>
+            <mat-label>Resposta <span class="required">*</span></mat-label>
             <input matInput name="response4" formControlName="response4">
           </mat-form-field>
-            <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct4">
+          <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct4">
         </div>
       </div>
       <div class="footer">
@@ -53,6 +68,13 @@
       </div>
     </form>
   </main>
-  <aside class="info">info del usuario</aside>
+  <aside class="info">
+    <h4 class="title">Informació del usuari</h4>
+    <mat-list>
+      <mat-list-item *ngFor="let user of users">
+        <mat-icon mat-list-icon>account_circle</mat-icon>
+        <div mat-line>{{user.username}}</div>
+      </mat-list-item>
+    </mat-list>
+  </aside>
 </div>
-
