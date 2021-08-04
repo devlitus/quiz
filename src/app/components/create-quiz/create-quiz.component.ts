@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 import { FileHandle } from './../../directive/dnd.directive';
+import { User } from 'src/app/models/user.interface';
 
 @Component({
   selector: 'app-create-quiz',
@@ -11,17 +12,17 @@ import { FileHandle } from './../../directive/dnd.directive';
   styleUrls: ['./create-quiz.component.scss'],
 })
 export class CreateQuizComponent implements OnInit {
-  public users: any[] = [];
+  public users: User[] = [];
   public quizs: any[] = [];
   private username: string = '';
   quizForm = new FormGroup({
-    question: new FormControl('', Validators.required),
-    titleQuiz: new FormControl('', Validators.required),
-    file: new FormControl(''),
-    response1: new FormControl('', Validators.required),
-    response2: new FormControl('', Validators.required),
-    response3: new FormControl('', Validators.required),
-    response4: new FormControl('', Validators.required),
+    question: new FormControl('' /*Validators.required*/),
+    titleQuiz: new FormControl('' /* Validators.required*/),
+    // file: new FormControl(''),
+    response1: new FormControl('' /*Validators.required*/),
+    response2: new FormControl('' /* Validators.required*/),
+    response3: new FormControl('' /* Validators.required*/),
+    response4: new FormControl('' /* Validators.required*/),
     respons: new FormControl(''),
   });
   files: FileHandle[] = [];
@@ -32,38 +33,28 @@ export class CreateQuizComponent implements OnInit {
   }
 
   filesDropped(files: FileHandle[]): void {
-    console.log(files);
+    // console.log(files);
     this.files = files;
   }
   getUser() {
-    this.service.getUser()
-    .subscribe(resp => {
+    this.service.getUser().subscribe((resp: User[]) => {
       this.users = [...resp];
-      this.users.map(us => {
-        this.username = us.username;
-      })
-    })
+      this.users.forEach((us: User) => {
+        return (this.username = us.username);
+      });
+    });
   }
   getQuiz() {
-    this.service.getQuiz().subscribe(resp => {
-      this.quizs = [...resp]
-    })
+    this.service.getQuiz().subscribe((resp) => {
+      this.quizs = [...resp];
+    });
   }
   onSubmit() {
-    let fromValid = {};
-    if (this.quizForm.valid) {
-      if (this.files.length === 0) {
-        fromValid = { ...this.quizForm.value, username: this.username };
-      } else {
-        fromValid = {
-          ...this.quizForm.value,
-          file: this.files[0].file.name,
-          username: this.username
-        };
-      }
-      this.service.addQuiz(fromValid);
-    } else {
-      console.log('form inalid');
+    if(this.quizForm.valid) {
+
+      this.service.addQuiz(this.quizForm.value, this.files);
+    }else {
+      console.log('formulario invalido')
     }
   }
 }

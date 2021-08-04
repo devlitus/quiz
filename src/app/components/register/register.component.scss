@@ -1,0 +1,23 @@
+.wrapper {
+  height: 90vh;
+  width: 70vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  .bg-image {
+    img {
+      margin-right: 2rem;
+    }
+    // border-right: 1px solid #ccc;
+  }
+  .divider {
+    width: 2px;
+    border-left: 1px solid #ccc;
+  }
+  .login {
+    h1 {
+      font-size: 4em;
+    }
+  }
+}
