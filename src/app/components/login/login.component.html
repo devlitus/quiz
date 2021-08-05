@@ -4,19 +4,19 @@
   </div>
   <div class="box-login">
     <h1>Inicia Sessió</h1>
-    <form class="from-login">
+    <form [formGroup]="formLogin" class="from-login" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <mat-form-field appearance="standard">
           <mat-label>Correo electrónic
             <span class="required">*</span></mat-label>
-          <input matInput placeholder="Placeholder">
+          <input matInput name="email" formControlName="email" placeholder="fulanito@gmail.com">
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
       </div>
       <div class="form-group">
         <mat-form-field class="input" appearance="standard">
           <mat-label >Contrasenya <span class="required">*</span></mat-label>
-          <input matInput placeholder="Placeholder">
+          <input matInput placeholder="123456" name="psw" formControlName="psw">
           <mat-icon matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -28,7 +28,7 @@
     <div class="box-forget">
       <p>¿Has oblidat la conrasenya?</p>
     </div>
-    <div class="box-google">
+    <div class="box-google" (click)="signInWithGoogle()">
       <div>
         <img src="../../../assets/images/google.svg" alt="">
       </div>

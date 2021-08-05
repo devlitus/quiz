@@ -12,8 +12,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'create-quiz', component: CreateQuizComponent},
-  {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
+  {path: '', redirectTo: '/', pathMatch: 'full'},
 ];
 
 @NgModule({

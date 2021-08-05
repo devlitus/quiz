@@ -1,11 +1,10 @@
 .wrapper {
   height: 90vh;
-  width: 70vw;
+  // width: 70vw;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
-  b
   .bg-image {
     img {
       margin-right: 2rem;
@@ -14,8 +13,17 @@
   }
 
   .box-login {
+    width: 30vw;
     h1 {
-      font-size: 4em;
+      font-size: 3em;
+    }
+    .form-group {
+      mat-form-field.mat-form-field {
+        width: 100%;
+        mat-label > span {
+          color: red;
+        }
+      }
     }
     .btn-group {
       .btn-login {
@@ -26,6 +34,7 @@
       margin-top: 2rem;
     }
     .box-google {
+      max-width: 20vw;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-around;
@@ -35,8 +44,52 @@
       margin-top: 2rem;
       cursor: pointer;
       p {
-        margin-top: .4em;
-        font-size: 1.5em;
+        margin: .1rem 1rem;
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .wrapper {
+    // height: 90vh;
+    // width: 70vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    .bg-image {
+      img {
+        width: 50vw;
+        margin-right: 2rem;
+      }
+      // border-right: 1px solid #ccc;
+    }
+    .box-login {
+      h1 {
+        font-size: 2em;
+      }
+      .btn-group {
+        .btn-login {
+          margin-right: 2rem;
+        }
+      }
+      .box-forget {
+        margin-top: 2rem;
+      }
+      .box-google {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 5px 5px 5px #ccc;
+        border-radius: 5px 5px 5px;
+        margin-top: 2rem;
+        cursor: pointer;
+        p {
+          margin-top: .4em;
+          font-size: small;
+        }
       }
     }
   }
