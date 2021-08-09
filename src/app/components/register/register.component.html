@@ -5,28 +5,36 @@
   <div class="divider"></div>
   <div class="login">
     <h1>Registrat</h1>
-    <form class="from-login">
+    <form [formGroup]="formRegister" class="from-login" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <mat-form-field appearance="standard">
-          <mat-label>Correo electrónic
+          <mat-label>Nom
             <span class="required">*</span></mat-label>
-          <input matInput placeholder="Placeholder">
+          <input type="text" matInput placeholder="fulanito" name="username" formControlName="username">
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="standard">
+          <mat-label>Email
+            <span class="required">*</span></mat-label>
+          <input type="email" matInput placeholder="fulanito@gmail.com" name="email" formControlName="email">
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
       </div>
       <div class="form-group">
         <mat-form-field class="input" appearance="standard">
           <mat-label >Contrasenya <span class="required">*</span></mat-label>
-          <input matInput placeholder="Placeholder">
+          <input type="password" matInput placeholder="123456" name="psw" formControlName="psw">
           <mat-icon matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
       <div class="btn-group">
-        <button class="btn-register" mat-raised-button color="primary">Registrarse</button>
+        <button class="btn-register" mat-raised-button color="primary">Registrat</button>
       </div>
     </form>
 
     <div class="box"></div>
   </div>
 </div>
-
+<!-- (ngSubmit)="onSubmit()" -->

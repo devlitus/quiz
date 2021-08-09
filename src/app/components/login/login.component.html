@@ -9,20 +9,20 @@
         <mat-form-field appearance="standard">
           <mat-label>Correo electrónic
             <span class="required">*</span></mat-label>
-          <input matInput name="email" formControlName="email" placeholder="fulanito@gmail.com">
+          <input type="email" matInput name="email" formControlName="email" placeholder="fulanito@gmail.com">
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
       </div>
       <div class="form-group">
         <mat-form-field class="input" appearance="standard">
           <mat-label >Contrasenya <span class="required">*</span></mat-label>
-          <input matInput placeholder="123456" name="psw" formControlName="psw">
+          <input type="password" matInput placeholder="123456" name="psw" formControlName="psw">
           <mat-icon matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
       <div class="btn-group">
-        <button class="btn-login" mat-raised-button color="primary">Inicia</button>
-        <button (click)="register()" class="btn-register" mat-raised-button color="primary">Registrat</button>
+        <button class="btn-login" mat-raised-button color="primary">Inicia sessió</button>
+        <button (click)="register()" class="btn-register" mat-raised-button color="primary">Registrat a la nostra plataforma</button>
       </div>
     </form>
     <div class="box-forget">

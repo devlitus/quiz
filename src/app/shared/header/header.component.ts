@@ -1,19 +1,24 @@
+import { FirebaseAuthService } from './../../service/firebase-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  public login: boolean = false;
+  constructor(private route: Router, private authFb: FirebaseAuthService) {}
 
-  constructor(private route: Router) { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  onLogin() {
+    this.route.navigate(['login']);
+    this.login = true
   }
-  onClick() {
-    this.route.navigate(['login'])
+  onLogout() {
+    this.login = false
+    this.route.navigate(['login']);
+    this.authFb.singOut();
   }
-
 }

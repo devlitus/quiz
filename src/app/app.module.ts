@@ -1,3 +1,4 @@
+import { Utils, Alert } from './utils/utils';
 import { environment } from './../environments/environment';
 import { MaterialModule } from './material/material.module';
 import { NgModule } from '@angular/core';
@@ -37,7 +38,7 @@ import { DndDirective } from './directive/dnd.directive';
     AngularFireStorageModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [Utils, Alert],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
