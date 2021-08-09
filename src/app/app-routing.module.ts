@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './components/home/home.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
+// Components
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { PagesComponent } from './pages/pages.component';
+import { FormQuizComponent } from './pages/quizs/form-quiz/form-quiz.component';
+import { QuizComponent } from './pages/quizs/quiz/quiz.component';
+import { PageNotFoundComponent } from './shares/page-not-found/page-not-found.component';
+
+
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: '', component: PagesComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'create-quiz', component: CreateQuizComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'quiz', component: FormQuizComponent},
   {path: '**', component: PageNotFoundComponent},
+  {path: '', redirectTo: '/quiz', pathMatch: 'full'},
 ];
 
 @NgModule({
