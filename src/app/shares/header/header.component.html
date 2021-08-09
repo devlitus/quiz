@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="home" (click)="onHome()"> Kahoot a la catalana</span>
+    <span class="spacer"></span>
+    <button *ngIf="!login else logout" (click)="onLogin()" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon >login</mat-icon>
+    </button>
+    <ng-template #logout>
+      <button (click)="onLogout()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </ng-template>
+    <button  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</nav>
