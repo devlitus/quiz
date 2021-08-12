@@ -4,8 +4,7 @@
     <h4>Preguntas afegides</h4>
     <div>
       <div *ngFor="let quiz of quizs">
-        <div class="mini-diapositiva">
-
+        <div class="mini-diapositiva" (click)="itemQuestion(quiz)">
           <span>{{quiz.question}}</span>
         </div>
       </div>
@@ -27,9 +26,9 @@
         </mat-form-field>
       </div>
       <div class="zonedrop" appDnd (files)="filesDropped($event)">
-        <div *ngIf="!files.length">
-          <mat-icon class="icon-upload-file">upload_file</mat-icon>
-        </div>
+        <span *ngIf="!files.length">
+          <mat-icon >upload_file</mat-icon>
+        </span>
         <div class="box-upload" *ngFor="let file of files">
           <img class="file-upload" *ngIf="file" [src]="file.url">
         </div>
@@ -64,18 +63,20 @@
           <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct4">
         </div>
       </div>
-      <div class="footer">
-        <button mat-raised-button color="accent">Finalitzar <mat-icon Sufix>send</mat-icon></button>
-
+      <div class="footer" >
+        <button *ngIf="isUpload" mat-raised-button color="accent">Finalitzar <mat-icon Sufix>send</mat-icon></button>  
+        <ng-template #isUpload>
+            <button mat-raised-button color="accent">Actualizar <mat-icon Sufix>send</mat-icon></button>
+        </ng-template>
       </div>
     </form>
   </main>
   <aside class="info">
     <h4 class="title">Informació del usuari</h4>
     <mat-list>
-      <mat-list-item *ngFor="let user of ['carles']">
+      <mat-list-item >
         <mat-icon mat-list-icon>account_circle</mat-icon>
-        <!-- <div mat-line>{{user.username}}</div> -->
+        <div mat-line>{{user.displayName}}</div>
       </mat-list-item>
     </mat-list>
   </aside>

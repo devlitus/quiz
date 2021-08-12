@@ -1,4 +1,5 @@
 export interface User {
   displayName: string,
-  email: string
+  email: string,
+  authId: any
 }

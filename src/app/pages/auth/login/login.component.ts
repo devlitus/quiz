@@ -16,27 +16,32 @@ export class LoginComponent implements OnInit {
   ) {}
 
   public formLogin = this.fb.group({
-    email: ['', Validators.required],
-    psw: ['', Validators.required],
+    email: ['carles@gmail.com', Validators.required],
+    psw: ['123456', Validators.required],
   });
   ngOnInit(): void {}
 
   register() {
     this.router.navigate(['register']);
   }
+
   signInWithGoogle() {
-    this.authFb.signInGoogle();
+    this.authFb
+      .signInGoogle()
+      .then((user) => {
+        // console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   onSubmit() {
-    /* if (this.formLogin.valid) {
+    if (this.formLogin.valid) {
       const { email, psw } = this.formLogin.value;
-      this.authFb
-        .signIn(email, psw)
-        .then((user) => {
-          console.log(user);
-          this.router.navigate(['']);
-        })
-        .catch((err) => console.error(err));
-    } */
+      this.signInWithEmailAndPassword(email, psw);
+    }
+  }
+  signInWithEmailAndPassword(email: string, psw: string) {
+    this.authFb.signIn(email, psw);
   }
 }

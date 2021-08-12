@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/firebase/auth/auth.service';
 
@@ -9,38 +9,30 @@ import { AuthService } from 'src/app/services/firebase/auth/auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  public formRegister = this.fb.group({
-    username: ['carles', Validators.required],
-    email: ['carles@gmail.com', Validators.required],
-    psw: ['123456', Validators.required],
-  });
+  public formRegister!: FormGroup;
   constructor(
     private fb: FormBuilder,
     private authFb: AuthService,
-    // private alert: Alert,
-    private router: Router
-  ) {}
+  ) {this.initForm()}
   ngOnInit(): void {}
+
+  initForm() {
+    this.formRegister = this.fb.group({
+      username: ['carles', Validators.required],
+      email: ['carles@gmail.com', Validators.required],
+      psw: ['123456', Validators.required],
+    });
+  }
 
   onSubmit() {
     if (this.formRegister.valid) {
       const { email, psw, username } = this.formRegister.value;
-      this.authFb.signUp(email, psw, username);
+      this.authFb.signUp(email, psw, username).then((user) => {
+        // console.log(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     }
   }
-  /*  erroAlert(error: any) {
-    switch (error.code) {
-      case 'auth/email-already-in-use':
-        this.alert.alertCustom('Error!', error.message, 'error');
-        break;
-      case 'auth/invalid-email':
-        this.alert.alertCustom('Error!', error.message, 'error');
-        break;
-      case 'auth/weak-password':
-        this.alert.alertCustom('Error!', error.message, 'error');
-        break;
-      default:
-        break;
-    }
-  } */
 }
