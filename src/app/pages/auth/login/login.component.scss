@@ -1,0 +1,65 @@
+.wrapper {
+  min-height: 100vh;
+  max-width: 90vw;
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  .bg-image {
+    max-width: 60vw;
+    img {
+      max-width: 60vw;
+    }
+  }
+  .box-login {
+    margin-left: 2em;
+    flex-grow: 1;
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    .form-group {
+      margin: 1rem 0;
+      mat-form-field.mat-form-field {
+        width: 60%;
+        max-width: 80%;
+        mat-label > span {
+          color: red;
+        }
+      }
+    }
+    .btn-group {
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        font-size: 1.2rem;
+        height: 5vh;
+        max-height: 5vh;
+      }
+    }
+    .box-forget {
+      width: 60%;
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    .box-google {
+      max-width: 20vw;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 5px 5px 5px #ccc;
+      border-radius: 5px 5px 5px;
+      margin-top: 2rem;
+      cursor: pointer;
+      p {
+        margin: 0.1rem 1rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kahot-d04e5": {
+      "hosting": {
+        "quiz": [
+          "kahot-d04e5"
+        ]
+      }
+    }
+  }
+}
