@@ -14,6 +14,7 @@ import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './theme/material.module';
 import { PagesModule } from './pages/pages.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PagesModule } from './pages/pages.module';
     AngularFireStorageModule,
     AngularFireAuthModule,
     PagesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

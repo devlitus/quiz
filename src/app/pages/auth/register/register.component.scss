@@ -1,21 +1,21 @@
 .wrapper {
-  height: 90vh;
-  width: 70vw;
+  height: 100vh;
+  max-width: 80vw; 
+  margin: auto;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   .bg-image {
+    max-width: 50vw;
     img {
-      margin-right: 2rem;
+      max-width: 50vw;
     }
-    // border-right: 1px solid #ccc;
-  }
-  .divider {
-    width: 2px;
-    border-left: 1px solid #ccc;
   }
   .login {
+    flex-grow: 1;
+    max-width: 100%;
+    margin-left: 2rem;
     h1 {
       font-size: 4em;
     }
@@ -25,6 +25,13 @@
         mat-label > span {
           color: red;
         }
+      }
+    }
+    .btn-group{
+      .btn-register {
+        font-size: 1.5rem;
+        min-width: 100%;
+        min-height: 2em;
       }
     }
   }

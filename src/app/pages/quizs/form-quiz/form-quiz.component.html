@@ -26,11 +26,13 @@
         </mat-form-field>
       </div>
       <div class="zonedrop" appDnd (files)="filesDropped($event)">
-        <span *ngIf="!files.length">
+        <span *ngIf="!files && urlImage === ''">
           <mat-icon >upload_file</mat-icon>
         </span>
-        <div class="box-upload" *ngFor="let file of files">
-          <img class="file-upload" *ngIf="file" [src]="file.url">
+        <div class="box-upload" >
+          <img class="file-upload" *ngIf="files" [src]="files.url">
+          <img [src]="urlImage" *ngIf="urlImage"  alt="">
+          
         </div>
       </div>
       <div class="group-response">
@@ -64,9 +66,9 @@
         </div>
       </div>
       <div class="footer" >
-        <button *ngIf="isUpload" mat-raised-button color="accent">Finalitzar <mat-icon Sufix>send</mat-icon></button>  
-        <ng-template #isUpload>
-            <button mat-raised-button color="accent">Actualizar <mat-icon Sufix>send</mat-icon></button>
+        <button *ngIf="!isNewForm; else isUpdateForm" mat-raised-button color="accent">Finalitzar <mat-icon Sufix>send</mat-icon></button>  
+        <ng-template #isUpdateForm>
+            <button (click)="uploadForm($event, quizForm)" mat-raised-button color="accent">Actualizar <mat-icon Sufix>send</mat-icon></button>
         </ng-template>
       </div>
     </form>
@@ -80,4 +82,5 @@
       </mat-list-item>
     </mat-list>
   </aside>
+
 </div>

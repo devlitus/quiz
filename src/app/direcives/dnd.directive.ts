@@ -9,7 +9,7 @@ export interface FileHandle {
   selector: '[appDnd]',
 })
 export class DndDirective {
-  @Output() files: EventEmitter<FileHandle[]> = new EventEmitter();
+  @Output() files: EventEmitter<FileHandle> = new EventEmitter();
   constructor(private sanitizer: DomSanitizer) {}
 
   @HostListener("dragover", ["$event"]) public onDragOver(evt: DragEvent) {
@@ -24,16 +24,14 @@ export class DndDirective {
     evt.preventDefault();
     evt.stopPropagation();
 
-    let files: FileHandle[] = [];
+    let files: FileHandle;
     if(evt.dataTransfer) {
       for (let i = 0; i < evt.dataTransfer.files.length; i++) {
         const file = evt.dataTransfer.files[i];
         const url = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file));
-        files.push({ file, url });
+        this.files.emit({file, url})
       }
-      if (files.length > 0) {
-        this.files.emit(files);
-      }
+      
     }
   }
 }
