@@ -91,8 +91,9 @@ export class AuthService {
     this.router.navigate(['']);
     return user;
   }
-  singOut(): Promise<void> {
-    return this.auth.signOut();
+  async singOut(): Promise<void> {
+    localStorage.clear();
+    return await this.auth.signOut();
   }
   catchErrorLogin(error: any) {
     switch (error.code) {

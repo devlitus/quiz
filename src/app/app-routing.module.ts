@@ -1,16 +1,19 @@
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { PagesComponent } from './pages/pages.component';
+import { FormQuizComponent } from './pages/quizs/form-quiz/form-quiz.component';
 
 
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
+  {path: '', component: PagesComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: '**', component: PageNotFoundComponent},
-  {path: '', redirectTo: '/quiz', pathMatch: 'full'},
+  {path: 'quiz', component: FormQuizComponent},
+  // {path: '**', component: PageNotFoundComponent},
+  {path: '', redirectTo: '', pathMatch: 'full'},
 ];
 
 @NgModule({

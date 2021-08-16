@@ -4,9 +4,7 @@ import { FormQuizComponent } from './form-quiz.component';
 import { MaterialModule } from 'src/app/theme/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DndDirective } from 'src/app/direcives/dnd.directive';
-import { HeaderModule } from 'src/app/shares/header/header.module';
-
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +15,7 @@ import { HeaderModule } from 'src/app/shares/header/header.module';
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    HeaderModule
+    SharedModule
   ],
   exports: [
     FormQuizComponent

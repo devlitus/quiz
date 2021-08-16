@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./quizs/quiz/quiz.module').then((m) => m.QuizModule),
+      import('./quizs/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'quiz',

@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { QuizRoutingModule } from './quiz-routing.module';
-import { QuizComponent } from './quiz.component';
-import { HeaderModule } from 'src/app/shares/header/header.module';
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
 import { MaterialModule } from 'src/app/theme/material.module';
 import { FormQuizModule } from '../form-quiz/form-quiz.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    QuizComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    QuizRoutingModule,
-    HeaderModule,
+    HomeRoutingModule,
+    SharedModule,
     MaterialModule,
     FormQuizModule,
   ],
   exports: [
-    QuizComponent
+    HomeComponent
   ]
 })
-export class QuizModule { }
+export class HomeModule { }
