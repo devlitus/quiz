@@ -1,0 +1,59 @@
+<form #quiz="ngForm" class="form" [formGroup]='quizForm' (ngSubmit)="onSubmit()">
+  <form #titleQ='ngForm' >
+    <div class="quiz">
+      <mat-form-field appearance="standard">
+        <mat-label>Títol del qüestionari <span class="required">*</span></mat-label>
+        <input matInput name="titleQuiz" ngModel #titel="ngModel">
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="quiz">
+    <mat-form-field appearance="standard">
+      <mat-label>Escriu la pregunta <span class="required">*</span></mat-label>
+      <input matInput name="question" formControlName="question">
+      <mat-icon matSuffix>quiz</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="zonedrop" appDnd (files)="filesDropped($event)">
+    <span *ngIf="!files || files.url === ''">
+      <mat-icon >upload_file</mat-icon>
+    </span>
+    <div class="box-upload" >
+      <img class="file-upload" *ngIf="files" [src]="files.url">
+    </div>
+  </div>
+  <div class="group-response">
+    <div class="group-control">
+      <mat-form-field appearance="standard">
+        <mat-label>Resposta <span class="required">*</span></mat-label>
+        <input matInput name="response1" formControlName="response1">
+      </mat-form-field>
+      <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct1">
+    </div>
+    <div class="group-control">
+      <mat-form-field appearance="standard">
+        <mat-label>Resposta <span class="required">*</span></mat-label>
+        <input matInput name="response2" formControlName="response2">
+      </mat-form-field>
+      <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct2">
+    </div>
+    <div class="group-control">
+      <mat-form-field appearance="standard">
+        <mat-label>Resposta <span class="required">*</span></mat-label>
+        <input matInput name="response3" formControlName="response3">
+      </mat-form-field>
+      <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct3">
+    </div>
+    <div class="group-control">
+      <mat-form-field appearance="standard">
+        <mat-label>Resposta <span class="required">*</span></mat-label>
+        <input matInput name="response4" formControlName="response4">
+      </mat-form-field>
+      <input class="radio-button" type="radio" name="respons" formControlName="respons" id="" value="correct4">
+    </div>
+  </div>
+  <div class="footer" >
+    <button mat-raised-button color="accent">Finalitzar <mat-icon Sufix>send</mat-icon></button>  
+
+  </div>
+</form>

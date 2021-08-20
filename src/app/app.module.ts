@@ -1,19 +1,18 @@
-
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
-import { PagesRoutingModule } from './pages/pages-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+import { AppRoutingModule } from './app-routing.module';
+import { PagesRoutingModule } from './pages/pages-routing.module';
+import { PagesModule } from './pages/pages.module';
 import { environment } from './../environments/environment';
 
+
 import { AppComponent } from './app.component';
-import { MaterialModule } from './theme/material.module';
-import { PagesModule } from './pages/pages.module';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -22,16 +21,14 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
+    PagesModule,
     PagesRoutingModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule,
     AngularFireAuthModule,
-    PagesModule,
-    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

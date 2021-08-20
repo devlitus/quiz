@@ -1,10 +1,26 @@
+<app-header></app-header>
 <div class="wrapper">
-  <mat-card class="card">
-    <mat-card-content class="card-content">
-      <img class="card-image" mat-card-image src="../../../assets/images/quiz.svg" alt="quiz">
-    </mat-card-content>
-    <mat-card-footer class="card-footer">
-      <button mat-raised-button color="accent" [routerLink]="['/quiz']" >Nou Qüestionari</button>
-    </mat-card-footer>
-  </mat-card>
+  <aside class="diapositiva">
+    <h4>Preguntas afegides</h4>
+    <div>
+      <div *ngFor="let quiz of quizs">
+        <div class="mini-diapositiva" (click)="itemQuestion(quiz)">
+          <span>{{quiz.question}}</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="content">
+    <app-form (sendForm)="onSubmit($event)"></app-form>
+  </main>
+  <aside class="info">
+    <h4 class="title">Informació del usuari</h4>
+    <mat-list>
+      <mat-list-item >
+        <mat-icon mat-list-icon>account_circle</mat-icon>
+        <div mat-line>{{user.displayName}}</div>
+      </mat-list-item>
+    </mat-list>
+  </aside>
+
 </div>

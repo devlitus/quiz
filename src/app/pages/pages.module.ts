@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
-import { HeaderModule } from '../shares/header/header.module';
-import { QuizModule } from './quizs/quiz/quiz.module';
+import { HomeModule } from './home/home.module';
+import { SharedModule } from '../shared/shared.module';
+
 import { PagesComponent } from './pages.component';
 
 @NgModule({
@@ -13,8 +14,8 @@ import { PagesComponent } from './pages.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    HeaderModule,
-    QuizModule
+    SharedModule,
+    HomeModule
   ],
   exports: [PagesComponent]
 })

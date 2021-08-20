@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { QuizRoutingModule } from './quiz-routing.module';
 import { QuizComponent } from './quiz.component';
-import { HeaderModule } from 'src/app/shares/header/header.module';
 import { MaterialModule } from 'src/app/theme/material.module';
-import { FormQuizModule } from '../form-quiz/form-quiz.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DndDirective } from 'src/app/direcives/dnd.directive';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { FormComponent } from '../components/form/form.component';
 
 @NgModule({
   declarations: [
-    QuizComponent
+    QuizComponent,
+    DndDirective,
+    FormComponent,
   ],
   imports: [
     CommonModule,
-    QuizRoutingModule,
-    HeaderModule,
+    ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
-    FormQuizModule,
+    SharedModule
   ],
   exports: [
     QuizComponent
