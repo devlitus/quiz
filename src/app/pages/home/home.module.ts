@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { MaterialModule } from 'src/app/theme/material.module';
-import { FormQuizModule } from '../form-quiz/form-quiz.module';
+import { QuizModule } from '../quizs/quiz/quiz.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -17,7 +17,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     HomeRoutingModule,
     SharedModule,
     MaterialModule,
-    FormQuizModule,
+    QuizModule,
   ],
   exports: [
     HomeComponent

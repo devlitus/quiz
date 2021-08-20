@@ -15,7 +15,6 @@ export class CloudinaryService {
   constructor(private http: HttpClient) {}
 
   uploadImage(image: File): Observable<string> {
-
     const body = new FormData();
       body.append('file', image);
       body.append('folder', `kahoot/${this.currenUser.displayName}`);

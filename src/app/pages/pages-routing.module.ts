@@ -16,12 +16,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./quizs/home/home.module').then((m) => m.HomeModule),
+      import('./home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'quiz',
     loadChildren: () =>
-      import('./quizs/form-quiz/form-quiz.module').then((m) => m.FormQuizModule),
+      import('./quizs/quiz/quiz.module').then((m) => m.QuizModule),
   },
 ];
 
